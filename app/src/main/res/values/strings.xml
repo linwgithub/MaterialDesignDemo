@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Material DesignDemo</string>
+    <string name="main_home">首页</string>
 </resources>

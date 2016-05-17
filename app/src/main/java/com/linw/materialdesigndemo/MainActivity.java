@@ -1,5 +1,7 @@
 package com.linw.materialdesigndemo;
 
+import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -12,12 +14,22 @@ public class MainActivity extends AppCompatActivity {
 
     View mainView;
     NavigationView navigationView;
+    FloatingActionButton bottomFloatBtn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mainView = findViewById(R.id.drawer_layout);
         navigationView = (NavigationView) findViewById(R.id.navigation_view);
+        bottomFloatBtn = (FloatingActionButton) findViewById(R.id.btn_bottom_floatbuttom);
+        bottomFloatBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ScrollerToolBarActivity.class);
+                startActivity(intent);
+            }
+        });
         setNavigationClickListener();
     }
 
@@ -30,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.navigation_item_home:
-                        Snackbar.make(mainView, "首页", Snackbar.LENGTH_LONG).show();
+                        Snackbar.make(mainView, R.string.main_home, Snackbar.LENGTH_LONG).show();
                         break;
                     case R.id.navigation_item_blog:
                         Snackbar.make(mainView, "博客", Snackbar.LENGTH_LONG).show();
@@ -45,11 +57,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void showSnackBar(View view) {
-        Snackbar.make(mainView,"I am SnackBar",Snackbar.LENGTH_SHORT).show();
+        Snackbar.make(mainView, "I am SnackBar", Snackbar.LENGTH_SHORT).show();
     }
 
     public void showSnackBarWithAction(View view) {
-        Snackbar.make(mainView,"I am SnackBar",Snackbar.LENGTH_SHORT).setAction("Action", new View.OnClickListener() {
+        Snackbar.make(mainView, "I am SnackBar", Snackbar.LENGTH_SHORT).setAction("Action", new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(MainActivity.this, "Toast frome SnackBar", Toast.LENGTH_LONG).show();
