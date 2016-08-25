@@ -31,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         setNavigationClickListener();
+
+        String name;
     }
 
     /**

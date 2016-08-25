@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+
+    </data>
+<android.support.design.widget.CoordinatorLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -14,9 +19,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
-            app:contentScrim="?attr/colorPrimary"
+            app:contentScrim="?attr/colorAccent"
             app:expandedTitleMarginEnd="64dp"
-            app:expandedTitleMarginStart="48dp"
+            app:expandedTitleMarginStart="16dp"
+            app:title="myCollapsingToolbar"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
             <!--contentScrim是设置其内容区的颜色,
             layout_scrollFlags取了scroll和exitUntilCollapsed两个值。-->
@@ -36,7 +42,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fitsSystemWindows="true"
-                android:scaleType="centerInside"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/steps_bg"
                 android:transitionName="transition_book_img"
                 app:layout_collapseMode="parallax"
                 app:layout_collapseParallaxMultiplier="0.7" />
@@ -50,7 +57,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:layout_collapseMode="pin"
-                app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light" >
+                <!--<TextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="Scroller_toolbar"/>-->
+
+            </android.support.v7.widget.Toolbar>
             <!--app:layout_collapseMode=”pin”
             这个确保Toolbar在AppBarLayout折叠的时候仍然被固定在屏幕的顶部-->
         </android.support.design.widget.CollapsingToolbarLayout>
@@ -113,4 +126,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </LinearLayout>
+
 </android.support.design.widget.CoordinatorLayout>
+</layout>
